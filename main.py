@@ -73,10 +73,12 @@ class Executive(Employee):
     def salary(self):
         work_days = 22
         per_day_salary = self.monthly_salary/work_days
+        
         try:
-        assert self.days_worked_in_the_month<=22
-        return round(per_day_salary*self.days_worked_in_the_month, 1)
-
+            assert self.days_worked_in_the_month<=22
+            return round(per_day_salary*self.days_worked_in_the_month, 1)
+        except AssertionError:
+            return "Working das are greater than 22 in one month."
 class Company:
     pass
 

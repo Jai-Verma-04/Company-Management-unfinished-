@@ -22,8 +22,11 @@ class HourlyEmployee(Employee):
 
     @property
     def salary(self):
-        assert self.no_of_hours<16
-        return self.no_of_hours*self.payrate
+        try:
+            assert self.no_of_hours<16
+            return self.no_of_hours*self.payrate
+        except AssertionError:
+            return "Working hours are more than 16!"
 
 
 class SalariedEmployee(Employee):
@@ -37,9 +40,12 @@ class SalariedEmployee(Employee):
     def salary(self):
         work_days = 22
         per_day_salary = self.monthly_salary/work_days
-        assert self.days_worked_in_the_month<=22
-        return round(per_day_salary*self.days_worked_in_the_month, 1)
-
+        
+        try:
+            assert self.days_worked_in_the_month<=22
+            return round(per_day_salary*self.days_worked_in_the_month, 1)
+        except AssertionError:
+            return "Working days are greater than 22 in the month"
 
 class Manager(Employee):
     def __init__(self, first_name, last_name, monthly_salary, days_worked_in_the_month):
@@ -50,8 +56,13 @@ class Manager(Employee):
     def salary(self):
         work_days = 22
         per_day_salary = self.monthly_salary/work_days
-        assert self.days_worked_in_the_month<=22
-        return round(per_day_salary*self.days_worked_in_the_month, 1)
+        
+        try:
+            assert self.days_worked_in_the_month<=22
+            return round(per_day_salary*self.days_worked_in_the_month, 1)
+        except AssertionError:
+            return "Working days are greater than 22"
+
 
 class Executive(Employee):
     def __init__(self, first_name, last_name, monthly_salary, days_worked_in_the_month):
@@ -62,10 +73,10 @@ class Executive(Employee):
     def salary(self):
         work_days = 22
         per_day_salary = self.monthly_salary/work_days
+        try:
         assert self.days_worked_in_the_month<=22
         return round(per_day_salary*self.days_worked_in_the_month, 1)
 
 class Company:
     pass
 
-emp = Executive("j", "v", 50000, 22)

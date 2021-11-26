@@ -78,7 +78,8 @@ class Executive(Employee):
             assert self.days_worked_in_the_month<=22
             return round(per_day_salary*self.days_worked_in_the_month, 1)
         except AssertionError:
-            return "Working das are greater than 22 in one month."
+            return "Working days are greater than 22 in one month."
+
 class Company:
     pass
 

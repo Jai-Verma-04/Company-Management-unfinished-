@@ -13,7 +13,6 @@ class Employee:
         return f"Name: {self.full_name} \nDesignation: {self.designation}"
 
 
-
 class HourlyEmployee(Employee):
     def __init__(self, first_name, last_name, no_of_hours, payrate):
         Employee.__init__(self, first_name, last_name)
@@ -70,5 +69,3 @@ class Company:
     pass
 
 emp = Executive("j", "v", 50000, 22)
-print(emp.salary)
-print(emp)

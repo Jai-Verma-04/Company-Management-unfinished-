@@ -27,6 +27,11 @@ class SalariedEmployee(Employee):
         self.monthly_salary = monthly_salary
         self.days_worked_in_the_month = days_worked_in_the_month
 
+    @property
+    def salary(self):
+        work_days = 22
+        per_day_salary = self.monthly_salary/work_days
+        return round(per_day_salary*self.days_worked_in_the_month, 1)
 
 class Manager(Employee):
     pass
@@ -37,3 +42,5 @@ class Executive(Employee):
 class Company:
     pass
 
+emp = SalariedEmployee("j", "v", 35000, 12)
+print(emp.salary)

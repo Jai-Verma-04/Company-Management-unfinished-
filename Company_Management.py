@@ -1,13 +1,14 @@
-import Admins, Employees
 from time import sleep
 
 run = True
-while run:
-    print("\nWelcome to Employee Dashboard..")
-    print("1. View your details")
-    print("2. Request correction in details")
-    print("3. Exit the program\n")
-
+while True:
+    print("\nWelcome to the Company Management Program.\n")
+    print("Login as: ")
+    print("1. Admin")
+    print("2. Employee")
+    print("3. Exit")
+    print()
+    
     try:
         choice = int(input("Enter your choice: "))
 
@@ -20,9 +21,9 @@ while run:
             sleep(1)
             run = False
         else:
-            print("Invalid choice!")
-            sleep(1)
+            print("Invalid Choice")
             continue
     except:
-        print("Wrong input")
-        continue
+        print("Wrong Input")
+
+    
